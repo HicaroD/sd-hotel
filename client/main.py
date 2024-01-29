@@ -7,7 +7,13 @@ class Hotel:
     def listar_quartos(self):
         quartos = requests.get("http://localhost:8900/rooms/")
         quartos = quartos.json()["rooms"]
-        print(quartos)
+
+        print("Quartos disponíveis:\n")
+        for quarto in quartos:
+            numero, ocupado, descricao = quarto
+            print(f"Número do quarto: {numero}")
+            print(f"Descrição: {descricao}")
+            print("--")
     def check_in(self, numero_quarto):
         check_in = requests.patch(f"http://localhost:8900/rooms/{numero_quarto}/checkin/")
         if check_in.status_code==200:
@@ -27,21 +33,23 @@ def main():
     hotel = Hotel()
 
     while True:
+        print("\n=========================")
         print("\nSeja bem-vindo ao Hotel! ")
+        print("\n=========================\n")
         print("1 - Listar quartos")
         print("2 - Check-in no quarto")
         print("3 - Checkout no quarto")
-        print("4 - Sair")
+        print("4 - Sair\n")
 
-        escolha = input("Escolha uma opção (1/2/3/4): ")
-
+        escolha = input("Escolha uma opção (1/2/3/4): "+"\n")
+        print("=============================")
         if escolha == "1":
             hotel.listar_quartos()
         elif escolha == "2":
-            numero_quarto = input("Digite o número do quarto para check-in: ")
+            numero_quarto = input("Digite o número do quarto para check-in: \n")
             hotel.check_in(numero_quarto)
         elif escolha == "3":
-            numero_quarto = input("Digite o número do quarto para check-out: ")
+            numero_quarto = input("Digite o número do quarto para check-out: \n")
             hotel.check_out(numero_quarto)
         elif escolha == "4":
             print("Saindo do programa. Até logo!")

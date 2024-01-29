@@ -16,7 +16,7 @@ def get_all_rooms():
 @app.patch("/rooms/{id}/checkin/")
 def check_in(id: int):
     db_connection.check_in(id)
-    return {"detail": f"Seu check-in no quarto de número {id} foi efetuado com sucesso"}
+    return {"detail": f"Seu check-in no quarto de número {id} foi efetuado com sucesso!"}
 
 
 @app.patch("/rooms/{id}/checkout/")
