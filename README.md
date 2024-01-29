@@ -2,6 +2,11 @@
 
 Simulação de reserva de hotel em Python com FastAPI.
 
+## Equipe
+
+- Hícaro Dânrlley - 21110431
+- Wemilly Maria - 21110434
+
 ## Instalação
 
 ```
